@@ -1,7 +1,7 @@
 ## Rest-api for expression calculator
 
 ## Installation:
-```go get github.com/borichevskiy/expr_rest-api```
+```go get github.com/borichevskiy/restcalc```
 ## Usage:
 First need to start server
 ```go
