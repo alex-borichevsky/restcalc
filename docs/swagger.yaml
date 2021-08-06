@@ -1,0 +1,29 @@
+basePath: /evaluate
+host: localhost:10000
+info:
+  contact: {}
+  description: This is rest-http server for expression calculator.
+  title: Expression Rest-Api
+  version: "1.0"
+paths:
+  /:
+    get:
+      consumes:
+      - application/json
+      description: evaluate expression
+      operationId: eval-expr
+      parameters:
+      - description: Expression
+        in: query
+        name: expr
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Evaluate
+swagger: "2.0"

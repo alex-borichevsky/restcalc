@@ -1,0 +1,43 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is rest-http server for expression calculator.",
+        "title": "Expression Rest-Api",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:10000",
+    "basePath": "/evaluate",
+    "paths": {
+        "/": {
+            "get": {
+                "description": "evaluate expression",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Evaluate",
+                "operationId": "eval-expr",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Expression",
+                        "name": "expr",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
