@@ -34,7 +34,6 @@ type response struct {
 // @Failure 500 {object} httputil.HTTPError
 // @Failure default {object} httputil.DefaultError
 // @Router /evaluate [get]
-// TODO: please add test for this handler, see httptest package.
 func evaluateExpression(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	expr := r.URL.Query().Get("expr")
