@@ -3,12 +3,12 @@ version: "3"
 services:
   web:
     build: .
-    container_name: rest_pool
+    container_name: rest
     ports:
       - 8080:9000
   wp:
-    build: https://github.com/borichevskiy/worker-pool2.git
-    container_name: worker_pool
+    build: https://github.com/borichevskiy/worker-pool.git
+    container_name: worker-pool
 
 
 
