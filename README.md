@@ -7,11 +7,11 @@ First need to start server
 ```go
 make run
 ```
-Then go to http://localhost:10000/evaluate/ and enter your expression
+Then go to http://localhost:9000/evaluate/?expr=" " and enter your expression
 
 Swagger supported. To see : 
 
-go to http://localhost:10000/swagger/index.html
+go to http://localhost:9000/swagger/index.html
 
 ## Contributing:
 
