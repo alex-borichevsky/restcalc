@@ -39,7 +39,6 @@ func evaluateExpression(w http.ResponseWriter, r *http.Request) {
 	expr := r.URL.Query().Get("expr")
 	res, err := expression_calculator.Evaluate(expr)
 	rsp, _ := json.Marshal(response{Expr: expr, Res: res, Err: err})
-
 	w.Write(rsp)
 }
 
