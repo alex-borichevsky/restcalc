@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	_ "expr_rest-api/docs"
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -20,7 +21,7 @@ import (
 type response struct {
 	Expr string `json:"expr"`
 	Res  int    `json:"res"`
-	Err  error  `json:"err"`
+	Err  string `json:"err"`
 }
 
 // @Summary Evaluate
@@ -38,7 +39,14 @@ func evaluateExpression(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	expr := r.URL.Query().Get("expr")
 	res, err := expression_calculator.Evaluate(expr)
-	rsp, _ := json.Marshal(response{Expr: expr, Res: res, Err: err})
+	// to avoid incorrect nil error: "\u003cnil\u003e"
+	var err2 string = fmt.Sprint(err)
+	if err == nil {
+		err2 = "nil"
+	}
+
+	rsp, _ := json.Marshal(response{Expr: expr, Res: res, Err: err2})
+
 	w.Write(rsp)
 }
 
